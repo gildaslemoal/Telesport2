@@ -23,9 +23,6 @@ export class DetailsComponent implements OnInit{
   public medalsOfCountry!: number;
   public totalAthletes!: number;
 
-  public years!: number[];
-  public medals!: number[];
-
   basicData: any;
   basicOptions: any;
 
@@ -35,25 +32,24 @@ export class DetailsComponent implements OnInit{
     let id = this.route.snapshot.params["id"];
     console.log(id);
     this.olympics$ = this.olympicService.getOlympics();
-
     this.olympicService.getOlympics().subscribe (
       (datasPerCountry:Olympics[]) => {
         if (datasPerCountry == undefined)return;
         let medalsCount:number[]=[];
-
         this.totalMedals = 0;
         for(let olympic of datasPerCountry){
 					medalsCount.push(this.calcMedals(olympic));
           if(id == olympic.id) {
             this.countryName = olympic.country;
-            this.medals = this.listMedalsPerJOs(olympic);
-            this.years = this.listYearsPerJOs(olympic);
+            let medals = this.listMedalsPerJOs(olympic);
+            let years = this.listYearsPerJOs(olympic);
+            this.graphCountry(years,medals);
             this.participationOfCountry = olympic.participations.length;
             this.medalsOfCountry = this.calcMedals(olympic);
             this.totalAthletes = this.calcAthletes(olympic);
-
           }
-        }
+         }
+  
       }
     );
 
@@ -126,15 +122,15 @@ export class DetailsComponent implements OnInit{
  
   private graphCountry(years:number[], medals:number[]){
     this.basicData = {
-      labels: this.years,
+      labels: years,
       datasets: [
           {
               label: '',
-              data: this.medals,
+              data: medals,
               backgroundColor: [
                   'rgba(249, 115, 22, 0.2)',
                   'rgba(6, 182, 212, 0.2)',
-                  'rgb(107, 114, 128, 0.2)',
+                  'rgba(107, 114, 128, 0.2)',
                   'rgba(139, 92, 246, 0.2)',
               ],
               borderColor: ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)', 'rgb(139, 92, 246)'],
