@@ -1,12 +1,13 @@
-<div class="container">
-    <p>Retrouvez le total des médailles olympiques par pays dans l'Histoire des JO  !!</p>
+<div class="container0">
+    <p>Retrouvez les médailles olympiques de chaque pays  !!</p>
 </div>
 
-<div class="container">	Medals per Country</div>
+<div class="container1">Medals per Country</div>
 
-<div class="container1">Number of countries {{ totalOlympics }}</div>
-
-<div class="container1">Number of JO's {{ totalJOs }}</div>
+<div class="container2">
+    <div class="items">Number of countries {{ totalOlympics }}</div>
+    <div class="items">Number of JO's {{ totalJOs }}</div>
+</div>
 
 <div class="card flex justify-content-center">
 	<p-chart type="pie" [data]="dataChart" [options]="options" [responsive]="true" (onDataSelect)="test($event)"/>
