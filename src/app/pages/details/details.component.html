@@ -1,7 +1,14 @@
-<div class="container1">{{  countryName }}</div>
-<div class="container1">Number of entries {{  participationOfCountry }}</div>
-<div class="container1">Total number medals {{ medalsOfCountry }}</div>
-<div class="container1">Total number of athletes {{ totalAthletes }}</div>
+<br />
+<div class="container1">
+    <div class="items1">{{  countryName }}</div>
+</div>
+<br />
+<div class="container2">
+    <div class="items2">Number of entries <br /><strong>{{  participationOfCountry }}</strong></div>
+    <div class="items2">Total number medals <br /><strong>{{ medalsOfCountry }}</strong></div>
+    <div class="items2">Total number of athletes <br /><strong>{{ totalAthletes }}</strong></div>
+</div>
+<br />
 <div class="card">
     <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
 </div>

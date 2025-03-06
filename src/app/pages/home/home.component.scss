@@ -8,8 +8,12 @@
     }
 
 .container1{
-    display: block;
+    display: flex;
+    flex-basis: 2px;
     justify-content: center;
+}
+
+.items1{
     text-align: center;
     background-color: #04838f;
     color: #ffffff;
@@ -18,28 +22,25 @@
     padding: 5px;
     margin: 10px;
     border-radius: 10px;
-    width: 100px;
-    }
+    width: 200px;
+    box-sizing: content-box;
+}
 
 .container2{
     display: flex;
     flex-basis: 2px;
     justify-content: center;
+    }
+
+.items2{
+    text-align: center;
     background-color: #ffffff;
     border-style: solid;
     border-color: #04838f;
-    text-align: center;
     font-family: Verdana;
+    border-radius: 10px;
     padding: 5px;
+    width: 200px;
+    margin-left: 20px;
+    box-sizing: content-box;
     }
-
-.items{
-    display: flex;
-    flex-basis: 2px;
-    text-align: center;
-    justify-content: center;
-    background-color: #ffffff;
-    text-align: center;
-    font-family: Verdana;
-    padding: 5px;
-        }
