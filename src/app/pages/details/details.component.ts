@@ -125,7 +125,7 @@ export class DetailsComponent implements OnInit{
       labels: years,
       datasets: [
           {
-              label: '',
+              label: 'Number of medals',
               data: medals,
               backgroundColor: [
                   'rgba(249, 115, 22, 0.2)',

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 	
-  	public olympics$: Observable<any> = of(null);
+  	public olympics$: Observable<Olympics[]> = of([]);
   	public totalOlympics!:number;
   	public totalMedals!:number;
 	public totalJOs!:number;

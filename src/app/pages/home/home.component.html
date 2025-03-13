@@ -1,14 +1,18 @@
-<div class="container0"><p>Retrouvez les médailles olympiques de chaque pays  !!</p></div>
+<div class="container">
+    <img width="100%" height="auto" src="assets/telesport_banner.png" alt="Logo Telesport" />
+   </div>
+
+<div class="container0">Retrouvez les médailles olympiques de chaque pays  !!</div>
 
 <div class="container1">
-    <div class="items1"><p>Medals per country</p></div>
+    <div class="items1">Medals per country</div>
 </div>
-<br  />
+
 <div class="container2">
-    <div class="items2">Number of JO's <br /><strong>{{ totalJOs }}</strong></div>
-    <div class="items2">Number of countries <br /><strong>{{ totalOlympics }}</strong></div>
+    <div class="items2">Number of JO's<br /><strong>{{totalJOs}}</strong></div>
+    <div class="items2">Number of countries<br /><strong>{{totalOlympics}}</strong></div>
 </div>
-<br />
+
 <div class="card flex justify-content-center">
 	<p-chart type="pie" [data]="dataChart" [options]="options" [responsive]="true" (onDataSelect)="test($event)"/>
 </div>

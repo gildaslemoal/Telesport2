@@ -1,15 +1,18 @@
-<br />
+<div class="container">
+    <img width="100%" height="auto" src="assets/telesport_banner.png" alt="Logo Telesport" />
+   </div>
+
 <div class="container1">
-    <div class="items1">{{  countryName }}</div>
+    <div class="items1">{{countryName}}</div>
 </div>
-<br />
+
 <div class="container2">
-    <div class="items2">Number of entries <br /><strong>{{  participationOfCountry }}</strong></div>
-    <div class="items2">Total number medals <br /><strong>{{ medalsOfCountry }}</strong></div>
-    <div class="items2">Total number of athletes <br /><strong>{{ totalAthletes }}</strong></div>
+    <div class="items2">Number of entries<br /><strong>{{participationOfCountry}}</strong></div>
+    <div class="items2">Total number medals<br /><strong>{{medalsOfCountry}}</strong></div>
+    <div class="items2">Total number of athletes<br /><strong>{{totalAthletes}}</strong></div>
 </div>
-<br />
+
 <div class="card">
     <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
 </div>
-<a routerLink="">Go back</a>
+<div class="button" routerLink="">Go back</div>

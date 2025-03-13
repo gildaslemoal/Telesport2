@@ -5,12 +5,15 @@
     background-color: #ffffff;
     font-family: Verdana;
     padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     }
 
 .container1{
     display: flex;
     flex-basis: 2px;
     justify-content: center;
+    margin-bottom: 20px
 }
 
 .items1{
@@ -30,6 +33,7 @@
     display: flex;
     flex-basis: 2px;
     justify-content: center;
+    margin-bottom: 20px;
     }
 
 .items2{
@@ -41,6 +45,6 @@
     border-radius: 10px;
     padding: 5px;
     width: 200px;
-    margin-left: 20px;
+    margin: 10px;
     box-sizing: content-box;
     }
