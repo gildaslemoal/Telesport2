@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Olympics } from 'src/app/core/models/Olympics';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { ActivatedRoute } from '@angular/router';
+import { BasicOptions, ChartsData } from 'src/app/core/models/Charts';
 
 @Component({
   selector: 'app-details',
@@ -23,8 +24,8 @@ export class DetailsComponent implements OnInit{
   public medalsOfCountry!: number;
   public totalAthletes!: number;
 
-  basicData: any;
-  basicOptions: any;
+  basicData!: ChartsData;
+  basicOptions!: BasicOptions;
 
   constructor(private olympicService: OlympicService, private route: ActivatedRoute) {}
 
@@ -104,10 +105,10 @@ export class DetailsComponent implements OnInit{
     return medalsPerJOs
   }
 
-  private listYearsPerJOs(olympic:Olympics):number[]{
-    let yearsPerJOs: number[] = [];
+  private listYearsPerJOs(olympic:Olympics):string[]{
+    let yearsPerJOs: string[] = [];
     for(let participation of olympic.participations){
-      yearsPerJOs.push(participation.year);
+      yearsPerJOs.push(participation.year+'');
     }
     return yearsPerJOs
   }
@@ -120,7 +121,7 @@ export class DetailsComponent implements OnInit{
     return totalAthletes
   }
  
-  private graphCountry(years:number[], medals:number[]){
+  private graphCountry(years:string[], medals:number[]){
     this.basicData = {
       labels: years,
       datasets: [

@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { Olympics } from 'src/app/core/models/Olympics';
 import { Router } from '@angular/router';
+import { BasicOptions, ChartsData } from 'src/app/core/models/Charts';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +18,8 @@ export class HomeComponent implements OnInit {
 	public totalJOs!:number;
 	private countries!:Olympics[];
 	
-	dataChart !: any;
-	options !: any;
+	dataChart !: ChartsData;
+	options !: BasicOptions;
 
   	constructor(private olympicService: OlympicService, private router: Router) {}
 

@@ -11,10 +11,11 @@ import { OlympicService } from './core/services/olympic.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ChartModule } from 'primeng/chart';
 import { MessageModule } from 'primeng/message';
+import { NoDataComponent } from './pages/no-data/no-data.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailsComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailsComponent, NoDataComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterLink, ChartModule, MessageModule],
   providers: [
     
