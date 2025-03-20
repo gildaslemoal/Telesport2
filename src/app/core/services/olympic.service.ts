@@ -18,7 +18,8 @@ export class OlympicService {
       tap((value) => this.olympics$.next(value)),
       catchError((error, caught) => {
         console.error(error);
-        return this.router.navigateByUrl(`nodata`);
+        this.router.navigateByUrl(`nodata`);
+        return caught;
       })
     );
   }

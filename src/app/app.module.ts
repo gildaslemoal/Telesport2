@@ -7,8 +7,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RouterLink } from '@angular/router';
 import { DetailsComponent } from './pages/details/details.component';
-import { OlympicService } from './core/services/olympic.service';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ChartModule } from 'primeng/chart';
 import { MessageModule } from 'primeng/message';
 import { NoDataComponent } from './pages/no-data/no-data.component';

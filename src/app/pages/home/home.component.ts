@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { Olympics } from 'src/app/core/models/Olympics';
 import { Router } from '@angular/router';
@@ -10,13 +10,14 @@ import { BasicOptions, ChartsData } from 'src/app/core/models/Charts';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 	
   	public olympics$: Observable<Olympics[]> = of([]);
   	public totalOlympics!:number;
   	public totalMedals!:number;
 	public totalJOs!:number;
 	private countries!:Olympics[];
+	private subscription!: Subscription;
 	
 	dataChart !: ChartsData;
 	options !: BasicOptions;
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
 		
    		this.olympics$ = this.olympicService.getOlympics();
    		
-    	this.olympicService.getOlympics().subscribe (
+    	this.subscription = this.olympicService.getOlympics().subscribe (
 			(datas:Olympics[]) => {
 				if (datas == undefined)return;
 				this.totalOlympics = datas.length;
@@ -96,11 +97,12 @@ export class HomeComponent implements OnInit {
   }
 
 
-  public test(event:any){
-	console.log(event);
+  public onCountryClick(event:any){
 	let country = this.countries[event.element.index];
-	country.id;
 	this.router.navigateByUrl(`details/${country.id}`);
   }
 
+  ngOnDestroy(): void {
+	this.subscription.unsubscribe();
+  }
 }

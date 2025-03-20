@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnDestroy,OnInit } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import { Olympics } from 'src/app/core/models/Olympics';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { BasicOptions, ChartsData } from 'src/app/core/models/Charts';
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
   })
-export class DetailsComponent implements OnInit{
+export class DetailsComponent implements OnInit, OnDestroy {
   public olympics$: Observable<any> = of(null);
   public totalJOsPerCountry!:number;
   public totalMedalsPerCountry!:number;
@@ -24,6 +24,8 @@ export class DetailsComponent implements OnInit{
   public medalsOfCountry!: number;
   public totalAthletes!: number;
 
+  private subcription!: Subscription;
+
   basicData!: ChartsData;
   basicOptions!: BasicOptions;
 
@@ -31,9 +33,8 @@ export class DetailsComponent implements OnInit{
 
   ngOnInit(): void {
     let id = this.route.snapshot.params["id"];
-    console.log(id);
     this.olympics$ = this.olympicService.getOlympics();
-    this.olympicService.getOlympics().subscribe (
+    this.subcription = this.olympicService.getOlympics().subscribe (
       (datasPerCountry:Olympics[]) => {
         if (datasPerCountry == undefined)return;
         let medalsCount:number[]=[];
@@ -139,6 +140,10 @@ export class DetailsComponent implements OnInit{
           },
       ],
   };
+  }
+
+  ngOnDestroy(): void{
+    this.subcription.unsubscribe();
   }
   
 }
